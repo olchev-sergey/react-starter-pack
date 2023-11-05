@@ -11,6 +11,7 @@
     "dev": "vite",
     "-----Code Styles-----": "",
     "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
+    "lint:fix": "eslint . --fix --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
     "prettier": "prettier . --write",
     "prettier:check": "prettier . --check",
     "-----Others-----": "",
@@ -29,12 +30,21 @@
     "eslint": "^8.45.0",
     "eslint-config-airbnb": "^19.0.4",
     "eslint-config-airbnb-typescript": "^17.1.0",
+    "eslint-config-prettier": "^9.0.0",
+    "eslint-plugin-prettier": "^5.0.1",
     "eslint-plugin-react": "^7.33.2",
     "eslint-plugin-react-hooks": "^4.6.0",
     "eslint-plugin-react-refresh": "^0.4.3",
+    "husky": "^8.0.0",
+    "lint-staged": "^15.0.2",
     "prettier": "3.0.3",
     "typescript": "^5.0.2",
-    "vite": "^4.4.5",
-    "husky": "^8.0.0"
+    "vite": "^4.4.5"
+  },
+  "lint-staged": {
+    "*.{js,css,ts,tsx,jsx}": [
+      "prettier --write",
+      "eslint --fix"
+    ]
   }
 }

@@ -10,6 +10,8 @@ module.exports = {
     'eslint:recommended',
     'plugin:@typescript-eslint/recommended',
     'plugin:react/recommended',
+    'plugin:react/jsx-runtime',
+    'plugin:prettier/recommended', // must be last
   ],
   overrides: [
     {
@@ -26,7 +28,14 @@ module.exports = {
   parserOptions: {
     ecmaVersion: 'latest',
     sourceType: 'module',
+    project: './tsconfig.json',
   },
-  plugins: ['@typescript-eslint', 'react'],
-  rules: {},
+  plugins: ['prettier', '@typescript-eslint', 'react'],
+  rules: {
+    'prettier/prettier': 'error',
+    'import/extensions': ['error', 'ignorePackages'],
+
+    'no-shadow': 'off',
+    '@typescript-eslint/no-shadow': 'off',
+  },
 }
